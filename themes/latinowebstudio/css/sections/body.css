@@ -40,6 +40,44 @@ a.bg-accent-secondary:hover {
   background: var(--accent-primary);
 }
 
+.bg-gradient-light-top-dark-bottom {
+  background: #183034;
+  background: linear-gradient(0deg, rgba(var(--accent-secondary-rgba), 1) 0%, rgba(var(--accent-tertiary-rgba), 1) 100%);
+}
+
+.gradient-bottom-dark-top-light-bottom:after {
+  content:"";
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:100px;
+  background: #183034;
+  background: linear-gradient(180deg, rgba(var(--accent-secondary-rgba), 1) 0%, rgba(var(--accent-tertiary-rgba), 1) 100%);
+}
+
+.gradient-bottom-transparent-top-dark-bottom:after {
+  content:"";
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:100px;
+  background: #183034;
+  background: linear-gradient(0deg, rgba(var(--accent-secondary-rgba), 1) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.gradient-top-dark-top-transparent-bottom::after {
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100px;
+  background: #183034;
+  background: linear-gradient(180deg, rgba(var(--accent-secondary-rgba), 1) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
 .bg-white {
   background: white;
 }

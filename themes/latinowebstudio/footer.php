@@ -5,12 +5,12 @@ if(!is_page(1807)){
 }
 
 echo '<footer>';
-echo '<section class="bg-accent-secondary" style="padding-top:50px;padding-bottom:25px;">';
+echo '<section class="bg-gradient-light-top-dark-bottom" style="padding-top:50px;padding-bottom:25px;">';
 echo '<div class="container">';
 echo '<div class="row justify-content-center">';
 
 echo '<div class="col-lg-9 text-center" style="">';
-echo do_shortcode('[button href="' . get_permalink(1723) . '" class="white" title="phone number link for Mark McFarland, P.E. - Expert Witness & Forensic Engineering"]Speak with an Expert[/button]');
+echo do_shortcode('[button href="' . get_permalink(1723) . '" class="white" title="phone number link for ' . get_bloginfo('name') . ' - ' . get_bloginfo('description') . '""]Speak with an Expert[/button]');
 echo do_shortcode('[button href="/wp-content/uploads/2025/01/Mark_McFarland-CV-notRetained.pdf" target="_blank" class="white"]CV Download[/button]');
 echo do_shortcode('[button href="/contact/" class="white"]Contact Now[/button]');
 echo '</div>';
@@ -22,9 +22,9 @@ echo '<hr style="margin:40px auto !important;border-color:#f7f7f7;">';
 echo '<div class="container">';
 echo '<div class="row">';
 
-echo '<div class="col-lg-3 col-md-6 text-white">';
-echo '<a href="' . home_url() . '" title="Homepage link for Mark McFarland, P.E. - Expert Witness & Forensic Engineering">';
-echo '<div style="width:205px;fill:white;" id="logoMain">';
+echo '<div class="col-lg-6 col-md-6 text-white">';
+echo '<a href="' . home_url() . '" title="Homepage link for ' . get_bloginfo('name') . ' - ' . get_bloginfo('description') . '">';
+echo '<div style="width:90%;min-width:250px;fill:white;" id="logoMain">';
 echo '<div style="pointer-events:none;">';
 echo logoSVG();
 echo '</div>';
@@ -42,11 +42,11 @@ echo wp_get_attachment_image(3010, 'full', false, array(
     'style'=>'width:20px;margin-right:10px;height:auto;object-fit:contain;border-radius:25px;')); ?>
 </div>
 <div>
-    <p class="" style="margin:0px;"><strong>Phone:</strong><br><a href="tel:+1<?php echo globalPhone(); ?>" title="phone number link for Mark McFarland, P.E. - Expert Witness & Forensic Engineering" class="text-white"><?php echo globalPhone(); ?></a></p>
+    <p class="" style="margin:0px;"><strong>Phone:</strong><br><a href="tel:+1<?php echo globalPhone(); ?>" title="phone number link for <?php echo get_bloginfo('name'); ?> - <?php echo get_bloginfo('description'); ?>" class="text-white"><?php echo globalPhone(); ?></a></p>
 </div>
 </div>
 <?php echo do_shortcode('[spacer]'); ?>
-<hr>
+
 <?php echo do_shortcode('[spacer]'); ?>
 <div class="d-flex">
 <div>
@@ -55,14 +55,16 @@ echo wp_get_attachment_image(3011, 'full', false, array(
     'style'=>'width:20px;margin-right:10px;height:auto;object-fit:contain;border-radius:25px;')); ?>
 </div>
 <div>
-    <p class="" style="margin:0px;"><strong>Email:</strong><br><a href="mailto:<?php echo emailAddress(); ?>" title="email address link for Mark McFarland, P.E. - Expert Witness & Forensic Engineering" class="text-white"><?php echo emailAddress(); ?></a></p>
+    <p class="" style="margin:0px;"><strong>Email:</strong><br><a href="mailto:<?php echo emailAddress(); ?>" title="email address link for <?php echo get_bloginfo('name'); ?> - <?php echo get_bloginfo('description'); ?>" class="text-white"><?php echo emailAddress(); ?></a></p>
 </div>
 </div>
+
+<div class="position-absolute h-100" style="border:1px solid #fff;top:0;right:0;"></div>
+
+</div> <!-- end of first column -->
 
 <?php
-
-echo '</div>';
-echo '<div class="col-lg-3 col-md-6 text-white">';
+echo '<div class="col-lg-4 col-md-6 text-white">';
 echo '<p class="h3" style="margin-bottom:0px;"><strong>Expert Witness Services</strong></p>';
 echo wp_get_attachment_image(3009, 'full', false, array(
     'style'=>'width:150px;height:auto;object-fit:contain;border-radius:25px;'));
@@ -72,8 +74,8 @@ wp_nav_menu(array(
     'menu_class'=>'menu list-unstyled mb-0'
 ));
 
-echo '</div>';
-echo '<div class="col-lg-4 col-md-6 text-white">';
+echo '</div>'; // end of second column
+echo '<div class="col-lg-2 col-md-6 text-white">';
 echo '<p class="h3" style="margin-bottom:0px;"><strong>Practice Areas</strong></p>';
 echo wp_get_attachment_image(3009, 'full', false, array(
     'style'=>'width:150px;height:auto;object-fit:contain;border-radius:25px;'));
@@ -83,28 +85,17 @@ wp_nav_menu(array(
     'menu_class'=>'menu list-unstyled mb-0'
 ));
 
-echo '</div>';
+echo '</div>'; // end of third column
 
-echo '<div class="col-lg-2 col-md-6 text-white">';
-echo '<p class="h3" style="margin-bottom:0px;"><strong>Resources</strong></p>';
-
-echo wp_get_attachment_image(3009, 'full', false, array(
-    'style'=>'width:150px;height:auto;object-fit:contain;border-radius:25px;'));
-
-?>
-
-
-<?php
-wp_nav_menu(array(
-    'menu' => 'Resources',
-    'menu_class'=>'menu list-unstyled mb-0'
-));
-
-echo '</div>';
 ?>
 
 <div class="col-12 text-center text-white" style="padding-top:100px;">
-    <p>Copyright &copy; <?php echo date('Y'); ?> Mark McFarland, P.E. - Forensic Electrical & Telecommunications Engineer. All rights reserved.</p>
+    <p>
+Copyright &copy; <?php echo date('Y'); ?> 
+<?php echo get_bloginfo('name'); ?> - 
+<?php echo get_bloginfo('description'); ?>. 
+All rights reserved.
+</p>
 <hr>
 </div>
 
@@ -139,7 +130,7 @@ echo '</div>';
 	<?php
 
 echo '<div style="width:100%;max-width:165px;" id="logoMain">';
-echo '<a href="' . home_url() . '" title="Homepage link for Mark McFarland, P.E. - Expert Witness & Forensic Engineering">';
+echo '<a href="' . home_url() . '" title="Homepage link for ' . get_bloginfo('name') . ' - ' . get_bloginfo('description') . '">';
 
 echo logoSVG();
 echo '</a>';

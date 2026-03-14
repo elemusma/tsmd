@@ -1,6 +1,8 @@
 <?php
 
-function discovery_engineering_stylesheets() {
+include_once get_theme_file_path('/codestarframework/codestarframework.php');
+
+function terrell_swanson_stylesheets() {
 wp_enqueue_style('style', get_stylesheet_uri() );
 
 wp_enqueue_style('layout', get_theme_file_uri('/css/sections/layout.css'));
@@ -42,12 +44,12 @@ wp_enqueue_style('gutenberg-custom', get_theme_file_uri('/css/sections/gutenberg
 // wp_enqueue_style('social-icons', get_theme_file_uri('/css/sections/social-icons.css'));
 
 }
-add_action('wp_enqueue_scripts', 'discovery_engineering_stylesheets');
+add_action('wp_enqueue_scripts', 'terrell_swanson_stylesheets');
 
 
 
 // for footer
-function discovery_engineering_stylesheets_footer() {
+function terrell_swanson_stylesheets_footer() {
 	
 wp_enqueue_style('footer', get_theme_file_uri('/css/sections/footer.css'));
 wp_enqueue_style('nav-mobile', get_theme_file_uri('/css/sections/nav-mobile.css'));
@@ -96,7 +98,7 @@ if(is_single()){
 	}
 }
 
-add_action('wp_footer', 'discovery_engineering_stylesheets_footer');
+add_action('wp_footer', 'terrell_swanson_stylesheets_footer');
 
 // loads enqueued javascript files deferred
 function mind_defer_scripts( $tag, $handle, $src ) {
@@ -120,7 +122,7 @@ if ( in_array( $handle, $defer ) ) {
 } 
 add_filter( 'script_loader_tag', 'mind_defer_scripts', 10, 3 );
 
-function discovery_engineering_menus() {
+function terrell_swanson_menus() {
 register_nav_menus( array(
 'primary' => __( 'Primary' )));
 register_nav_menus( array(
@@ -130,7 +132,7 @@ add_theme_support('title-tag');
 add_theme_support('post-thumbnails');
 }
 
-add_action('after_setup_theme', 'discovery_engineering_menus');
+add_action('after_setup_theme', 'terrell_swanson_menus');
 
 if( function_exists('acf_add_options_page') ) {
 
@@ -353,240 +355,17 @@ function txt_type_shortcode( $atts ) {
 }
 add_shortcode( 'txt_type', 'txt_type_shortcode' );
 
-function discovery_engineering_contact_shortcode() {
+function terrell_swanson_contact_shortcode() {
     return do_shortcode('
-        [button href="#expert-witness" class="small btn-contact" style="margin-left:0px;"]Contact Mark[/button]
-        [button href="/wp-content/uploads/2025/01/Mark_McFarland-CV-notRetained.pdf" target="_blank" class="white small cv-download" style="margin-left:0px;"]CV Download[/button]
+        [button href="#expert-witness" class="small btn-contact" style="margin-left:0px;"]Contact ' . expertName() . '[/button]
+        [button href="' . cvDownloadLink() . '" target="_blank" class="white small cv-download" style="margin-left:0px;"]CV Download[/button]
         <div style="margin:15px 0px;">
             <span>Call Me: </span>
-            <a href="tel:+1720.593.1640" class="text-link d-inline-block phone" style="">720.593.1640</a>
+            <a href="tel:+1' . globalPhone() . '" class="text-link d-inline-block phone" style="">' . globalPhone() . '</a>
         </div>
     ');
 }
-add_shortcode('discovery_engineering_contact', 'discovery_engineering_contact_shortcode');
-
-
-// function custom_modify_block_output($block_content, $block) {
-// // Check if it's the core/paragraph, core/image, or core/columns block
-// if (in_array($block['blockName'], array('core/image', 'core/columns', 'core/quote'))) {
-// 	// Modify the block content as needed
-// 	$block_content = '<section class=""><div class="container"><div class="row"><div class="col-12">' . $block_content . '</div></div></div></section>';
-// }
-// return $block_content;
-// }
-
-// add_filter('render_block', 'custom_modify_block_output', 10, 2);
-
-// function custom_modify_block_output($block_content, $block) {
-//     global $post;
-
-//     // Check if it's the core/paragraph, core/image, or core/columns block
-//     if (
-//         in_array($block['blockName'], array('core/paragraph', 'core/image', 'core/columns'))
-//         && !has_block('core/quote', $post)
-//     ) {
-//         // Modify the block content as needed
-//         $block_content = '<section class=""><div class="container"><div class="row"><div class="col-12">' . $block_content . '</div></div></div></section>';
-//     }
-//     return $block_content;
-// }
-
-// add_filter('render_block', 'custom_modify_block_output', 10, 2);
-
-
-// Control core classes for avoid errors
-if( class_exists( 'CSF' ) ) {
-
-//
-// Set a unique slug-like ID
-$prefix = 'my_framework';
-
-$post_prefix = 'my_post_framework';
-// Create a metabox
-CSF::createMetabox( $post_prefix, array(
-    'title'     => 'My Post Options',
-    'post_type' => 'post',
-    'fields'    => array(
-        array(
-            'id'    => 'my_text_field',
-            'type'  => 'text',
-            'title' => 'My Text Field',
-        ),
-    ),
-    'callback'  => 'my_metabox_callback_function',
-) );
-
-// Define the callback function
-function my_metabox_callback_function() {
-    echo 'This is where you can add additional HTML content for the metabox if needed.';
-}
-
-// Create options
-CSF::createOptions( $prefix, array(
-	'menu_title' => 'Global Settings',
-	'menu_slug'  => 'my-framework',
-) );
-
-//
-// Create a section
-CSF::createSection( $prefix, array(
-	'title'  => 'Logo',
-	'fields' => array(
-
-	// Media
-	array(
-		'id'    => 'img-logo',
-		'type'  => 'media',
-		'title' => 'Main Logo',
-		),
-	// Code Editor
-	array(
-		'id'    => 'logo-svg',
-		'type'  => 'code_editor',
-		'title' => 'SVG for Logo',
-		'sanitize' => false,
-	  ),
-
-	)
-) );
-
-// Create a section
-CSF::createSection( $prefix, array(
-	'title'  => 'About',
-	'fields' => array(
-
-	  
-	  // A textarea field
-      array(
-        'id'    => 'company-about',
-        'type'  => 'textarea',
-        'title' => 'Description about the company',
-      ),
-	  
-	  // A textarea field
-      array(
-        'id'    => 'expert-witness-blurb',
-        'type'  => 'textarea',
-        'title' => 'Expert Witness And Analytic Services',
-      ),
-
-	  array(
-		'id'      => 'global-phone',
-		'type'    => 'text',
-		'title'   => 'Phone',
-		'default' => '(555) 555-5555'
-	  ),
-
-	  array(
-		'id'      => 'email-address',
-		'type'    => 'text',
-		'title'   => 'Email',
-		'default' => 'info@domain.com'
-	  ),
-	  
-	  
-
-	)
-) );
-// Create a section
-CSF::createSection( $prefix, array(
-	'title'  => 'Header, Body & Footer Code',
-	'fields' => array(
-
-	//   array(
-	// 	'id'       => 'code-header-one',
-	// 	'type'     => 'code_editor',
-	// 	'title'    => 'HTML Editor',
-	// 	'sanitize' => false,
-	// 	'settings' => array(
-	// 	  'theme'  => 'mdn-like',
-	// 	  'mode'   => 'htmlmixed',
-	// 	),
-	// 	'default'  => '<h1>Hello world</h1>',
-	//   ),
-	  array(
-		'id'       => 'code-header',
-		'type'     => 'code_editor',
-		'title'    => 'Code: Header',
-		'sanitize' => false,
-	  ),
-	  array(
-		'id'       => 'code-body',
-		'type'     => 'code_editor',
-		'title'    => 'Code: Body',
-		'sanitize' => false,
-	  ),
-	  array(
-		'id'       => 'code-footer',
-		'type'     => 'code_editor',
-		'title'    => 'Code: Footer',
-		'sanitize' => false,
-	  ),
-	  
-
-	)
-) );
-
-}
-
-
-function global_function() {
-    global $options;
-    $options = get_option( 'my_framework' ); // unique id of the framework
-    return $options;
-}
-
-function logoImg() {
-    global $options;
-    global_function(); // call the global function to set $options
-    return $options['img-logo'];
-}
-function logoSVG() {
-    global $options;
-    global_function(); // call the global function to set $options
-    return $options['logo-svg'];
-}
-// function codeHeader() {
-//     global $options;
-//     global_function(); // call the global function to set $options
-//     return $options['code-header-one'];
-// }
-function codeHeader() {
-    global $options;
-    global_function(); // call the global function to set $options
-    return $options['code-header'];
-}
-function codeBody() {
-    global $options;
-    global_function(); // call the global function to set $options
-    return $options['code-body'];
-}
-function codeFooter() {
-    global $options;
-    global_function(); // call the global function to set $options
-    return $options['code-footer'];
-}
-function companyAbout() {
-    global $options;
-    global_function(); // call the global function to set $options
-    return $options['company-about'];
-}
-
-function globalPhone() {
-    global $options;
-    global_function(); // call the global function to set $options
-    return $options['global-phone'];
-}
-function emailAddress() {
-    global $options;
-    global_function(); // call the global function to set $options
-    return $options['email-address'];
-}
-function expertWitness() {
-    global $options;
-    global_function(); // call the global function to set $options
-    return $options['expert-witness-blurb'];
-}
+add_shortcode('global_cta', 'terrell_swanson_contact_shortcode');
 
 function chevronRight() {
 	return '<svg style="width:15px;height:10px;" id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 416.03 448.15">
@@ -704,7 +483,7 @@ add_filter('category_link', function ($category_link, $category_id) {
     return $category_link;
 }, 10, 2);
 
-  function discovery_engineering_cta_shortcode() {
+  function terrell_swanson_cta_shortcode() {
     ob_start(); ?>
     <section class="position-relative text-white bg-black" style="padding:100px 0px;" id="expert-witness">
       <?php echo wp_get_attachment_image(3012,'full','',array(
@@ -736,7 +515,7 @@ add_filter('category_link', function ($category_link, $category_id) {
     <?php
     return ob_get_clean();
 }
-add_shortcode('discovery_engineering_cta', 'discovery_engineering_cta_shortcode');
+add_shortcode('terrell_swanson_cta', 'terrell_swanson_cta_shortcode');
 
 // function remove_pagination_title($args) {
 //     $args['screen_reader_text'] = ''; // Remove screen-reader title

@@ -30,7 +30,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="row justify-content-between align-items-center">
 
           <div class="col-lg-3 col-md-4 col-5 text-center" style="">
-            <div class="bg-accent-secondary box-shadow" style="border-bottom-left-radius:25px;border-bottom-right-radius:25px;padding-top:25px;">
+            <div class="bg-accent-secondary box-shadow" style="border-bottom-left-radius:25px;border-bottom-right-radius:25px;padding-top:15px;">
             <a href="<?php echo home_url(); ?>/?nocache" title="<?php echo get_bloginfo( 'name' ) . ' - ' . get_bloginfo( 'description' ); ?>" class="">
               <div id="logoMain" style="min-width:100px;width:75%;transition:all .25s ease-in-out;margin:auto;">
                 <div style="pointer-events:none;">

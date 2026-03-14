@@ -89,18 +89,20 @@ export default function save( { attributes } ) {
 												>
 													<g>
 														<polygon
-															className="cls-1 chevron-right"
+															className="chevron-right"
 															style={ {
 																strokeWidth:
 																	'0px',
+																	fill:'black'
 															} }
 															points=".5 1.17 167.65 160.87 .5 320.57 .5 1.17"
 														/>
 														<path
-															className="cls-1 chevron-right"
+															className="chevron-right"
 															style={ {
 																strokeWidth:
 																	'0px',
+																	fill:'black'
 															} }
 															d="M1,2.34l165.93,158.53L1,319.4V2.34M0,0v321.74l168.38-160.87L0,0h0Z"
 														/>
