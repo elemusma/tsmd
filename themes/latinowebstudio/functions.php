@@ -52,6 +52,7 @@ add_action('wp_enqueue_scripts', 'terrell_swanson_stylesheets');
 function terrell_swanson_stylesheets_footer() {
 	
 wp_enqueue_style('footer', get_theme_file_uri('/css/sections/footer.css'));
+wp_enqueue_style('services', get_theme_file_uri('/css/sections/services.css'));
 wp_enqueue_style('nav-mobile', get_theme_file_uri('/css/sections/nav-mobile.css'));
 wp_enqueue_style('accordion', get_theme_file_uri('/css/sections/accordion.css'));
 // wp_enqueue_style('style-footer', get_theme_file_uri('/css/style-footer.css'));

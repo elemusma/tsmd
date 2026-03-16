@@ -93,103 +93,117 @@ export default function save( { attributes } ) {
 							{ attributes.columns.map( ( column, index ) => {
 								const TitleTag = column.title_tag || 'h3';
 
-								const titleContent = ( column.title || column.content ) ? (
-    <div
-        className={ `${ column.content_only_class }` }
-        style={ { ...parseInlineStyles( column.content_only_style ) } }
-    >
-        { React.createElement(
-            TitleTag,
-            {
-                className: `${ column.title_class }`,
-                style: { ...parseInlineStyles( column.title_style ) },
-            },
-            <RichText.Content value={ column.title } />
-        ) }
-        <p
-            className={ column.content_class }
-            style={ { ...parseInlineStyles( column.content_style ) } }
-        >
-            <RichText.Content value={ column.content } />
-        </p>
-    </div>
-) : null;
+								const titleContent =
+									column.title || column.content ? (
+										<div
+											className={ `${ column.content_only_class }` }
+											style={ {
+												...parseInlineStyles(
+													column.content_only_style
+												),
+											} }
+										>
+											{ React.createElement(
+												TitleTag,
+												{
+													className: `${ column.title_class }`,
+													style: {
+														...parseInlineStyles(
+															column.title_style
+														),
+													},
+												},
+												<RichText.Content
+													value={ column.title }
+												/>
+											) }
+											<p
+												className={
+													column.content_class
+												}
+												style={ {
+													...parseInlineStyles(
+														column.content_style
+													),
+												} }
+											>
+												<RichText.Content
+													value={ column.content }
+												/>
+											</p>
+										</div>
+									) : null;
 
 								const columnContent = (
-									<div
-										className={ `${ column.inner_col_class }` }
-										style={ `${ column.inner_col_style }` }
-										data-aos={ column.data_aos }
-										data-aos-delay={ column.data_aos_delay }
-									>
-										{ column.img_type !== 'gallery' ? (
-											column.img && (
-												<img
-													src={ column.img }
-													alt={
-														column.img_alt ||
-														column.img_title
-													}
-													className={
-														column.img_class
-													}
-													style={ column.img_style }
-												/>
-											)
-										) : (
-											<div
-												className={ `${ column.media_class }` }
-												style={ column.media_style }
-											>
-												{ column.img_gallery &&
-													column.img_gallery.length >
-														0 &&
-													column.img_gallery.map(
-														( img, i ) => (
-															<a
-																key={ i }
-																href={ img.url }
-																data-lightbox={
-																	column.media_lightbox
-																}
-															>
-																<img
-																	src={
-																		img.url
-																	}
-																	alt={
-																		img.alt ||
-																		img.title
-																	}
-																	className={
-																		column.img_class
-																	}
-																	style={
-																		column.img_style
-																	}
-																/>
-															</a>
-														)
-													) }
-											</div>
-										) }
-
-										{ column.code_block_position === 'above'
-    ? (
-        <>
-            { column.code_block && <RawHTML>{ column.code_block }</RawHTML> }
-            { titleContent }
-        </>
-    ) : (
-        <>
-            { titleContent }
-            { column.code_block && <RawHTML>{ column.code_block }</RawHTML> }
-        </>
-    )
-}
-										
-									</div>
-								);
+    <div
+        className={ `${ column.inner_col_class }` }
+        style={ `${ column.inner_col_style }` }
+        data-aos={ column.data_aos }
+        data-aos-delay={ column.data_aos_delay }
+    >
+        { column.img_position === 'below' ? (
+            <>
+                { column.code_block_position === 'above' ? (
+                    <>
+                        { column.code_block && <RawHTML>{ column.code_block }</RawHTML> }
+                        { titleContent }
+                    </>
+                ) : (
+                    <>
+                        { titleContent }
+                        { column.code_block && <RawHTML>{ column.code_block }</RawHTML> }
+                    </>
+                ) }
+                { column.img_type !== 'gallery' ? (
+                    column.img && (
+                        <img src={ column.img } alt={ column.img_alt || column.img_title }
+                            className={ column.img_class } style={ column.img_style } />
+                    )
+                ) : (
+                    <div className={ `${ column.media_class }` } style={ column.media_style }>
+                        { column.img_gallery && column.img_gallery.length > 0 &&
+                            column.img_gallery.map( ( img, i ) => (
+                                <a key={ i } href={ img.url } data-lightbox={ column.media_lightbox }>
+                                    <img src={ img.url } alt={ img.alt || img.title }
+                                        className={ column.img_class } style={ column.img_style } />
+                                </a>
+                            ) ) }
+                    </div>
+                ) }
+            </>
+        ) : (
+            <>
+                { column.img_type !== 'gallery' ? (
+                    column.img && (
+                        <img src={ column.img } alt={ column.img_alt || column.img_title }
+                            className={ column.img_class } style={ column.img_style } />
+                    )
+                ) : (
+                    <div className={ `${ column.media_class }` } style={ column.media_style }>
+                        { column.img_gallery && column.img_gallery.length > 0 &&
+                            column.img_gallery.map( ( img, i ) => (
+                                <a key={ i } href={ img.url } data-lightbox={ column.media_lightbox }>
+                                    <img src={ img.url } alt={ img.alt || img.title }
+                                        className={ column.img_class } style={ column.img_style } />
+                                </a>
+                            ) ) }
+                    </div>
+                ) }
+                { column.code_block_position === 'above' ? (
+                    <>
+                        { column.code_block && <RawHTML>{ column.code_block }</RawHTML> }
+                        { titleContent }
+                    </>
+                ) : (
+                    <>
+                        { titleContent }
+                        { column.code_block && <RawHTML>{ column.code_block }</RawHTML> }
+                    </>
+                ) }
+            </>
+        ) }
+    </div>
+);
 
 								if ( column.col_link ) {
 									return (

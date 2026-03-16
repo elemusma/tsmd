@@ -75,7 +75,7 @@ img.img-si {
     position: relative;
 }
 
-.img-hover:after {
+/* .img-hover:after {
     content: "+";
     position: absolute;
     width: 50px;
@@ -95,7 +95,7 @@ img.img-si {
     transition: all .25s ease-in-out;
     pointer-events: none;
     padding-top:10px;
-}
+} */
 
 /* image hover with favicon instead of plus sign */
 /* .img-hover:after {

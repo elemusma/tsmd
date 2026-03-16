@@ -1,5 +1,50 @@
 /* Start of services home */
 
+.services .first-layer {
+  position:absolute;
+  height:50%;
+  border-radius:25px;
+border:1px solid white;
+background:rgba(255,255,255,.15);
+width:90%;
+top:0%;
+z-index:-1;
+left:calc(5% - 4px);
+}
+
+.services .second-layer {
+  position:absolute;
+  height:50%;
+  border-radius:25px;
+  border: 1px solid white;
+    background: rgba(255, 255, 255, .15);
+    width: 75%;
+    top: 20%;
+    z-index: -1;
+    left: calc(12.5% - 4px);
+}
+
+.services .third-layer {
+  position:absolute;
+  height:50%;
+  border-radius:25px;
+  border:1px solid white;
+    background: rgba(255, 255, 255, .15);
+    width: 80%;
+    top: 22%;
+    z-index: -1;
+    left: calc(10% - 4px);
+}
+
+.services .svg-icon {
+  position:absolute;
+  width: 45px;
+    height: 45px;
+    z-index: 1;
+    bottom: 25px;
+    right: 20px;
+}
+
 .services-col {
   position: relative;
   overflow: hidden;

@@ -681,6 +681,11 @@ export default function Edit( { attributes, setAttributes } ) {
 												}
 											/>
 										</div>
+										<ToggleControl
+    label="Image Below Content"
+    checked={ column.img_position === 'below' }
+    onChange={ ( val ) => updateColumn( index, 'img_position', val ? 'below' : 'above' ) }
+/>
 
 										{ column.img_type !== 'gallery' ? (
 											/* ── Single Image ── */
@@ -1033,10 +1038,19 @@ export default function Edit( { attributes, setAttributes } ) {
 											Code Section
 										</p>
 										<ToggleControl
-    label="Show code block above content"
-    checked={ column.code_block_position === 'above' }
-    onChange={ ( val ) => updateColumn( index, 'code_block_position', val ? 'above' : 'below' ) }
-/>
+											label="Show code block above content"
+											checked={
+												column.code_block_position ===
+												'above'
+											}
+											onChange={ ( val ) =>
+												updateColumn(
+													index,
+													'code_block_position',
+													val ? 'above' : 'below'
+												)
+											}
+										/>
 										<textarea
 											style={ {
 												height: '200px',

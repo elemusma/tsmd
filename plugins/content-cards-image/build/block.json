@@ -137,6 +137,7 @@
           "img": "",
           "img_alt": "",
           "img_title": "",
+          "img_position": "above",
           "img_gallery": [],
           "img_class": "w-100 h-auto",
           "img_style": "object-fit:contain;",

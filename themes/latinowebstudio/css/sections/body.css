@@ -35,6 +35,9 @@ a.bg-accent:hover {
 .bg-accent-secondary {
   background: var(--accent-secondary);
 }
+.bg-accent-tertiary {
+  background: var(--accent-tertiary);
+}
 
 a.bg-accent-secondary:hover {
   background: var(--accent-primary);
@@ -67,7 +70,7 @@ a.bg-accent-secondary:hover {
   background: linear-gradient(0deg, rgba(var(--accent-secondary-rgba), 1) 0%, rgba(255, 255, 255, 0) 100%);
 }
 
-.gradient-top-dark-top-transparent-bottom::after {
+.gradient-top-dark-top-transparent-bottom:before {
   content:"";
   position:absolute;
   top:0;
@@ -76,6 +79,7 @@ a.bg-accent-secondary:hover {
   height:100px;
   background: #183034;
   background: linear-gradient(180deg, rgba(var(--accent-secondary-rgba), 1) 0%, rgba(255, 255, 255, 0) 100%);
+  z-index:1;
 }
 
 .bg-white {
