@@ -111,6 +111,7 @@ export default function Edit( { attributes, setAttributes } ) {
 		content: '',
 		code_block: '',
 		code_block_position: false,
+		desc_position: 'below',
 	} );
 
 	const addColumn = () => {
@@ -1174,6 +1175,17 @@ export default function Edit( { attributes, setAttributes } ) {
 													index,
 													'title_tag',
 													value
+												)
+											}
+										/>
+									<ToggleControl
+											label="Show Description Above Title"
+											checked={ column.desc_position === 'above' }
+											onChange={ ( val ) =>
+												updateColumn(
+													index,
+													'desc_position',
+													val ? 'above' : 'below'
 												)
 											}
 										/>

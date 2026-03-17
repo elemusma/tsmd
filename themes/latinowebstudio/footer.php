@@ -10,9 +10,12 @@ echo '<div class="container">';
 echo '<div class="row justify-content-center">';
 
 echo '<div class="col-lg-9 text-center" style="">';
-echo do_shortcode('[button href="' . get_permalink(1723) . '" class="white" title="phone number link for ' . get_bloginfo('name') . ' - ' . get_bloginfo('description') . '""]Speak with an Expert[/button]');
-echo do_shortcode('[button href="/wp-content/uploads/2025/01/Mark_McFarland-CV-notRetained.pdf" target="_blank" class="white"]CV Download[/button]');
-echo do_shortcode('[button href="/contact/" class="white"]Contact Now[/button]');
+
+echo '<div class="text-white">';
+echo do_shortcode('[global_cta]');
+echo '</div>';
+
+
 echo '</div>';
 echo '</div>';
 echo '</div>';
@@ -22,7 +25,7 @@ echo '<hr style="margin:40px auto !important;border-color:#f7f7f7;">';
 echo '<div class="container">';
 echo '<div class="row">';
 
-echo '<div class="col-lg-6 col-md-6 text-white">';
+echo '<div class="col-lg-5 col-md-6 text-white">';
 echo '<a href="' . home_url() . '" title="Homepage link for ' . get_bloginfo('name') . ' - ' . get_bloginfo('description') . '">';
 echo '<div style="width:90%;min-width:250px;fill:white;" id="logoMain">';
 echo '<div style="pointer-events:none;">';
@@ -64,8 +67,8 @@ echo wp_get_attachment_image(3011, 'full', false, array(
 </div> <!-- end of first column -->
 
 <?php
-echo '<div class="col-lg-4 col-md-6 text-white">';
-echo '<p class="h3" style="margin-bottom:0px;"><strong>Expert Witness Services</strong></p>';
+echo '<div class="col-lg-3 col-md-6 text-white">';
+echo '<p class="h3" style="margin-bottom:0px;"><strong>Medical Expert Witness</strong></p>';
 echo wp_get_attachment_image(3009, 'full', false, array(
     'style'=>'width:150px;height:auto;object-fit:contain;border-radius:25px;'));
 
@@ -75,15 +78,32 @@ wp_nav_menu(array(
 ));
 
 echo '</div>'; // end of second column
-echo '<div class="col-lg-2 col-md-6 text-white">';
-echo '<p class="h3" style="margin-bottom:0px;"><strong>Practice Areas</strong></p>';
+echo '<div class="col-lg-4 col-md-6 text-white">';
+echo '<p class="h3" style="margin-bottom:0px;"><strong>Blog</strong></p>';
 echo wp_get_attachment_image(3009, 'full', false, array(
     'style'=>'width:150px;height:auto;object-fit:contain;border-radius:25px;'));
 
-wp_nav_menu(array(
-    'menu' => 'Practice Areas',
-    'menu_class'=>'menu list-unstyled mb-0'
+$recentBlog = new WP_Query(array(
+  'posts_per_page' => 5,
+  'post_type' => 'post',
+  'post__not_in' => [get_the_ID()],
 ));
+
+echo '<ul class="list-unstyled">';
+
+$i = 0;
+while ($recentBlog->have_posts()) {
+  $recentBlog->the_post();
+
+  $padding = $i === 0 ? 'padding:0px 0px 10px 0px;' : 'padding:10px 0px;';
+
+  echo '<li><a href="' . get_the_permalink() . '" class="d-block" style="' . $padding . '">' . get_the_title() . '</a></li>';
+
+  $i++;
+}
+
+wp_reset_postdata();
+echo '</ul>';
 
 echo '</div>'; // end of third column
 
@@ -93,8 +113,7 @@ echo '</div>'; // end of third column
     <p>
 Copyright &copy; <?php echo date('Y'); ?> 
 <?php echo get_bloginfo('name'); ?> - 
-<?php echo get_bloginfo('description'); ?>. 
-All rights reserved.
+<?php echo get_bloginfo('description'); ?>.
 </p>
 <hr>
 </div>

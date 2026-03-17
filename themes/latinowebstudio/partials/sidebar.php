@@ -1,9 +1,6 @@
 <?php 
 
 echo '<div class="col-lg-3 col-12 order-2 sidebar">';
-// echo '<div class="card p-3 mb-2">';
-// get_search_form();
-// echo '</div>';
 
 ?>
 
@@ -14,26 +11,25 @@ echo '<div class="col-lg-3 col-12 order-2 sidebar">';
     'style'=>'height:100%;object-fit:cover;'
 ));
 	?>
-<!-- 	<p class="small">How to Choose the Right Expert Witness Without Risking Your Case</p> -->
+
 	<?php 
-	echo do_shortcode('[gravityform id="2" title="false" description="false" ajax="true"]');
+	// echo do_shortcode('[gravityform id="2" title="false" description="false" ajax="true"]');
 	?>
 </div>
 
 <div class="card text-center">
 <div>
-<?php echo wp_get_attachment_image(256, 'full', false, array(
+<?php echo wp_get_attachment_image(254, 'full', false, array(
     'class' => '',
-    'style' => 'width:150px;height:150px;border-radius:50%;object-fit:cover;object-position:top;'
+    'style' => 'width:100%;aspect-ratio:1/1;height:auto;border-radius:50%;object-fit:cover;object-position:top;box-shadow: 0 0 10px var(--accent-primary);border: 1px solid var(--accent-secondary);'
 )); ?>
 </div>
-<a href="#expert-witness" class="btn-main small">Speak with an Expert</a>
-<a href="/wp-content/uploads/2025/01/Mark_McFarland-CV-notRetained.pdf" target="_blank" class="btn-main outline small">Download CV</a>
+<?php echo do_shortcode('[global_cta]'); ?>
 </div>
 
 <?php
 echo '<div class="card p-3 mt-2 mb-2">';
-echo '<h3 class="teko">Recent Posts</h3>';
+echo '<h3 class="">Recent Posts</h3>';
 
 $recentBlog = new WP_Query(array(
 'posts_per_page' => 5,

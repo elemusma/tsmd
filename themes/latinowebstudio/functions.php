@@ -486,29 +486,33 @@ add_filter('category_link', function ($category_link, $category_id) {
 
   function terrell_swanson_cta_shortcode() {
     ob_start(); ?>
-    <section class="position-relative text-white bg-black" style="padding:100px 0px;" id="expert-witness">
-      <?php echo wp_get_attachment_image(3012,'full','',array(
-        'class'=>'w-100 h-100 position-absolute',
-        'style'=>'top:0;left:0;object-fit:cover;object-position:center;'
-      )) ?>
-      <div class="bg-black position-absolute w-100 h-100" style="top:0;left:0;opacity:.5;"></div>
+    <section class="position-relative bg-accent-secondary gradient-bottom-transparent-top-tertiary-bottom" style="padding:0px 0px 150px;" id="expert-witness">
       <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-12 text-center">
+        <div class="row justify-content-center br-25 text-white" style="padding:35px 25px 0px;background:rgba(255,255,255,.15);border:1px solid white;">
 
-          <?php if(is_page(16)) { ?>
-      <h1 class="text-shadow" style="box-shadow:inset 0 -5px 0 0 var(--accent-primary);display:inline-block;">Contact Forensic Electrical & Telecomm Engineer</h1>
+            <div class="col-lg-6">
+          <?php if(is_page(24)) { ?>
+      <h1 class="text-shadow h2" style="box-shadow:inset 0 -5px 0 0 var(--accent-primary);display:inline-block;">Explain Complex Medical Concepts in Plain English</h1>
       <?php } else { ?>
-        <h2 class="text-shadow" style="box-shadow:inset 0 -5px 0 0 var(--accent-primary);display:inline-block;">Contact Forensic Electrical & Telecomm Engineer</h2>
+        <h2 class="text-shadow" style="box-shadow:inset 0 -5px 0 0 var(--accent-primary);display:inline-block;">Explain Complex Medical Concepts in Plain English</h2>
         <?php } ?>
         <!-- <p class=""><strong><em class="text-shadow">Out of the office from Dec 22 - Jan 26. Responses will be delayed.</em></strong></p> -->
-      <p class="lead">If you&apos;re a <strong>lawyer or litigator</strong> looking to get <strong>clear insights on complex technical evidence</strong>. Call <a href="tel:+1<?php echo globalPhone(); ?>" class="text-link"><?php echo globalPhone(); ?></a> or send me a message and I will <strong>discuss your specific needs</strong> to see if my <strong>expert witness services</strong> are a good fit for your case.</p>
-      
+      <p class="">If you have a case involving <strong>emergency medicine, wilderness, or dive medicine</strong>, call <a href="tel:+1<?php echo globalPhone(); ?>" class="text-link"><?php echo globalPhone(); ?></a> or send a message. I review <strong>civil and criminal</strong> cases for both <strong>plaintiff and defense</strong> attorneys and can give you a quick assessment of the medical evidence.</p>
+      <img decoding="async" src="/wp-content/uploads/Emergency-Medicine-Expert-Witness-Terrell-Swanson-Medical-Explain-Complex-Medical-Concepts.png" style="bottom:0;width:150px;height:auto;" class="position-lg-absolute" alt="Terrell Swanson Emergency Medicine Expert Witness Explain Complex Medical Concepts" title="Terrell Swanson Emergency Medicine Expert Witness Explain Complex Medical Concepts">
+      </div>
+
+      <div class="col-lg-6">
+        <div class="position-absolute" style="height:75%;width:1px;background:gray;top:50%;transform:translate(0px,-50%);"></div>
+        <div style="padding:0px 25px;">
+          <h3>Understand the Data in Your Case</h3>
       <?php 
 	echo do_shortcode('[gravityform id="1" title="false" description="false" ajax="true"]');
 	// echo do_shortcode('[gravityform id="1" title="false" description="false" ajax="true"]');
   ?>
   </div>
+</div>
+
+
         </div>
       </div>
   </section>

@@ -4,7 +4,8 @@
 #next a, 
 .card ul li a,
 .text-link,
-.case-studies a {
+.case-studies a,
+.publications a {
 	color: unset;
 	padding: 0px 5px;
 	box-shadow: inset 0 -5px 0 0 var(--accent-primary);
@@ -17,8 +18,9 @@
 #next a:hover, 
 .card ul li a:hover,
 .text-link:hover,
-.case-studies a:hover {
-	color:white;
+.case-studies a:hover,
+.publications a:hover {
+	color:black;
 	box-shadow: inset 0 -55px 0 0 var(--accent-primary);
 }
 /* queries */

@@ -25,12 +25,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
 function create_block_content_testimonials_block_init() {
-	// wp_enqueue_style('owl-carousel', plugin_dir_url( __FILE__ ) . 'owl-carousel/owl-carousel.css');
-	// wp_enqueue_style('owl-carousel-min', plugin_dir_url( __FILE__ ) . 'owl-carousel/owl.carousel.min.css');
-	// wp_enqueue_style('owl-carousel-theme-default-min', plugin_dir_url( __FILE__ ) . 'owl-carousel/owl.theme.default.min.css');
 	register_block_type( __DIR__ . '/build' );
-	// wp_enqueue_script('owl-carousel-jquery-min', plugin_dir_url( __FILE__ ) . 'owl-carousel/jquery.min.js');
-	// wp_enqueue_script('owl-carousel-min', plugin_dir_url( __FILE__ ) . 'owl-carousel/owl.carousel.min.js');
-	// wp_enqueue_script('owl-carousel', plugin_dir_url( __FILE__ ) . 'owl-carousel/owl-carousels.js');
 }
 add_action( 'init', 'create_block_content_testimonials_block_init' );

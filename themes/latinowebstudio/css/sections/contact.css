@@ -1,4 +1,5 @@
-input.gform_button.button {
+input.gform_button.button,
+input#gform_submit_button_1 {
   background-color: var(--accent-primary);
   border-color: var(--accent-primary);
   border-radius: 25px;
@@ -6,19 +7,31 @@ input.gform_button.button {
   cursor: pointer;
   transition: all 0.25s ease-in-out;
   font-family: 'poppinsbold';
-  /* max-width: 250px; */
   width: 100%;
-  /* margin: auto; */
   cursor: pointer;
-/*   color: white; */
   box-shadow: none !important;
   white-space: unset;
 }
 
-input.gform_button.button:hover {
-  background-color: var(--accent-secondary);
-  border-color: var(--accent-secondary);
-  color:white !important;
+input#gform_submit_button_1:hover {
+  background-color: var(--accent-primary-hover);
+  border-color: var(--accent-primary-hover);
+  /* color:white !important; */
+}
+
+.gform-footer.gform_footer.top_label {
+    margin-bottom: -17.5px;
+}
+
+.text-white form legend.gfield_label,
+.text-white form label.gfield_label {
+    color: white;
+}
+
+input:focus,
+textarea:focus {
+    border: 1px solid var(--accent-primary) !important;
+    outline-color: var(--accent-primary) !important;
 }
 
 /* .gform_footer.top_label {

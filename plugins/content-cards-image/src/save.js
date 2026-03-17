@@ -103,34 +103,49 @@ export default function save( { attributes } ) {
 												),
 											} }
 										>
-											{ React.createElement(
-												TitleTag,
-												{
-													className: `${ column.title_class }`,
-													style: {
-														...parseInlineStyles(
-															column.title_style
-														),
-													},
-												},
-												<RichText.Content
-													value={ column.title }
-												/>
+											{ column.desc_position === 'above' ? (
+												<>
+													<p
+														className={ column.content_class }
+														style={ {
+															...parseInlineStyles( column.content_style ),
+														} }
+													>
+														<RichText.Content value={ column.content } />
+													</p>
+													{ React.createElement(
+														TitleTag,
+														{
+															className: `${ column.title_class }`,
+															style: {
+																...parseInlineStyles( column.title_style ),
+															},
+														},
+														<RichText.Content value={ column.title } />
+													) }
+												</>
+											) : (
+												<>
+													{ React.createElement(
+														TitleTag,
+														{
+															className: `${ column.title_class }`,
+															style: {
+																...parseInlineStyles( column.title_style ),
+															},
+														},
+														<RichText.Content value={ column.title } />
+													) }
+													<p
+														className={ column.content_class }
+														style={ {
+															...parseInlineStyles( column.content_style ),
+														} }
+													>
+														<RichText.Content value={ column.content } />
+													</p>
+												</>
 											) }
-											<p
-												className={
-													column.content_class
-												}
-												style={ {
-													...parseInlineStyles(
-														column.content_style
-													),
-												} }
-											>
-												<RichText.Content
-													value={ column.content }
-												/>
-											</p>
 										</div>
 									) : null;
 

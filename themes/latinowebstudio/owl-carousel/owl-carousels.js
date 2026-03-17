@@ -26,7 +26,7 @@ jQuery(document).ready(function($) {
             // slideBy: 3
         },
         1000: {
-            items: 2,
+            items: 3,
             slideBy: 1
         }
     }

@@ -16,7 +16,7 @@
 
 .text-accent,
 a {
-  color: var(--accent-primary);
+  color: var(--accent-tertiary);
   text-decoration: none;
 }
 
