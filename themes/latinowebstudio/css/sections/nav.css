@@ -1,26 +1,3 @@
-/* @keyframes rotate-infinite {
-from {
-    transform: rotate(0deg);
-}
-to {
-    transform: rotate(360deg);
-}
-}
-
-@keyframes navSmoothTransition {
-from {
-    top:-100%;
-}
-to {
-    top:0%;
-}
-}
-
-.txt-logo {
-animation: rotate-infinite 35s linear infinite;
-transform-origin:center;
-} */
-
 @keyframes navAnimation {
     from {
         top:-100%;
@@ -46,10 +23,6 @@ transform-origin:center;
     position:fixed;
     animation: navAnimation 1s linear;
 }
-/* .header-nav.inactive {
-    transition:all .5s ease-in-out;
-    animation: navAnimationInactive 10s linear;
-} */
 
 header.position-fixed.scroll{
 	animation: navSmoothTransition .5s linear;
@@ -67,7 +40,6 @@ div#logoMain:hover svg path {
 }
 
 div#servicesMenuModal {
-/*     top: 91px; */
     background: none;
 }
 #servicesMenuModal .modal-content {
@@ -84,7 +56,6 @@ li.title-areas-expertise:after {
     font-size: 9px;
     color: white;
     width: 100%;
-    /* font-style: italic; */
 }
 @media only screen and (max-width:1199px) {
     li.title-areas-expertise:after {
@@ -97,8 +68,8 @@ ul.menu li {
     position: relative;
 }
 
-ul.menu>li.menu-item-has-children {
-    margin-right: 18px;
+ul.menu>li.menu-item-has-children a {
+    padding-right: 38px;
 }
 
 .dropdown-arrow {
@@ -108,8 +79,8 @@ ul.menu>li.menu-item-has-children {
     width: 9px;
     height: 9px;
     top: 45%;
-    right: 0;
-    transform: translate(9px, -50%);
+    right: 10px;
+    transform: translate(0px, -50%);
 }
 
 @media screen and (max-width:1199px) {
@@ -126,10 +97,6 @@ ul.menu>li>a {
     color: black;
     text-decoration:none;
     transition:all .25s ease-in-out;
-    /* font-weight: 200; */
-    /* text-transform: uppercase; */
-    /* font-size: 14px;
-    font-family: unset; */
     cursor:pointer;
 }
 
@@ -153,9 +120,17 @@ ul.menu>li>a:hover,
 #menu-main-menu>.current_page_item>a,
 .current_page_parent>.current-menu-item>a,
 .current-page-ancestor>a,
-#menu-main-menu .current_page_ancestor .current_page_item>a {
+#menu-main-menu .current_page_ancestor .current_page_item>a,
+ul.sub-menu li a:hover {
     text-decoration: none;
-    color: var(--accent-primary) !important;
+    background: var(--accent-primary) !important;
+    color:black;
+}
+
+.current-page-ancestor .dropdown-arrow,
+.current-menu-item .dropdown-arrow,
+ul.menu>li>a:hover ~ .sub-menu ~ .dropdown-arrow{
+    background: black;
 }
 
 @media screen and (max-width:1199px) {
@@ -251,7 +226,7 @@ ul.menu>li>a:hover,
 
 @media screen and (min-width:1200px) {
     ul.sub-menu {
-        padding: 0 20px;
+        padding: 0 0px;
         position: absolute;
         background: var(--accent-secondary);
         background: white;
@@ -260,7 +235,7 @@ ul.menu>li>a:hover,
         overflow: hidden;
         transition: all .5s ease-in-out;
         /* min-width: 100%; */
-        min-width: 200px;
+        min-width: 230px;
         top: 51px;
         transform-origin: top;
         box-shadow: 0px 0px 3px rgba(0,0,0,.5);
@@ -282,16 +257,17 @@ ul.sub-menu, ul.sub-menu * {
 
 ul.sub-menu li {
     white-space: nowrap;
+    padding:0px;
 }
 
 ul.sub-menu li a {
     color: white;
     white-space: normal;
     color: black;
+    padding: 10px 20px;
+    display: block;
 }
-ul.sub-menu li a:hover {
-    color: var(--accent-primary);
-}
+
 
 @media only screen and (max-width:1199px) {
     ul.sub-menu {

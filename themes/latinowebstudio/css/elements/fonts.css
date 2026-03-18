@@ -14,7 +14,10 @@
   color: white;
 }
 
-.text-accent,
+.text-accent {
+  color: var(--accent-primary);
+  text-decoration: none;
+}
 a {
   color: var(--accent-tertiary);
   text-decoration: none;

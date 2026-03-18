@@ -7,7 +7,7 @@
 
 .checkmark li:before {
     content: "";
-    background: url(/wp-content/uploads/2026/03/Checkmark.png);
+    background: url('/wp-content/uploads/Arrow-Icon.png');
     background-repeat: no-repeat;
     background-size: contain;
     width: 25px;
