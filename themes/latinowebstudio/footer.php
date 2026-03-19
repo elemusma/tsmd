@@ -89,7 +89,7 @@ $recentBlog = new WP_Query(array(
   'post__not_in' => [get_the_ID()],
 ));
 
-echo '<ul class="list-unstyled">';
+echo '<ul class="list-unstyled menu">';
 
 $i = 0;
 while ($recentBlog->have_posts()) {
