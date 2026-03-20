@@ -11,7 +11,7 @@ echo '<span class="close-custom position-absolute" style="top:25px;right:25px;z-
 
 echo '<div class="row">';
 echo '<div class="col-lg-6 d-none d-md-block">';
-echo wp_get_attachment_image(3012,'full','',array(
+echo wp_get_attachment_image(560,'full','',array(
     'class'=>'w-100',
     'style'=>'height:100%;object-fit:cover;'
 ));

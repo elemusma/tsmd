@@ -1,8 +1,8 @@
 <?php
 
-if(!is_page(1807)){
-	echo get_template_part('lead-magnet/lead-magnet');	
-}
+// if(!is_page(1807)){
+// 	echo get_template_part('lead-magnet/lead-magnet');	
+// }
 
 echo '<footer>';
 echo '<section class="bg-gradient-light-top-dark-bottom" style="padding-top:50px;padding-bottom:25px;">';
