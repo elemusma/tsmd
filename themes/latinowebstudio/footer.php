@@ -25,7 +25,7 @@ echo '<hr style="margin:40px auto !important;border-color:#f7f7f7;">';
 echo '<div class="container">';
 echo '<div class="row">';
 
-echo '<div class="col-lg-5 col-md-6 text-white">';
+echo '<div class="col-lg-6 col-md-6 text-white">';
 echo '<a href="' . home_url() . '" title="Homepage link for ' . get_bloginfo('name') . ' - ' . get_bloginfo('description') . '">';
 echo '<div style="width:90%;min-width:250px;fill:white;" id="logoMain">';
 echo '<div style="pointer-events:none;">';
@@ -35,8 +35,9 @@ echo '</div>';
 echo '</a>';
 
 echo '<p class="">' . companyAbout() . '</p>';
-
 ?>
+
+<?php echo companyLocation(); ?>
 
 <div class="d-flex" style="margin-top:1em;">
 <div>
@@ -62,6 +63,12 @@ echo wp_get_attachment_image(3011, 'full', false, array(
 </div>
 </div>
 
+<div style="padding-top:25px;">
+<?php 
+echo do_shortcode('[social_icons]'); 
+?>
+</div>
+
 <div class="position-absolute h-100" style="border:1px solid #fff;top:0;right:0;"></div>
 
 </div> <!-- end of first column -->
@@ -78,7 +85,7 @@ wp_nav_menu(array(
 ));
 
 echo '</div>'; // end of second column
-echo '<div class="col-lg-4 col-md-6 text-white">';
+echo '<div class="col-lg-3 col-md-6 text-white">';
 echo '<p class="h3" style="margin-bottom:0px;"><strong>Blog</strong></p>';
 echo wp_get_attachment_image(3009, 'full', false, array(
     'style'=>'width:150px;height:auto;object-fit:contain;border-radius:25px;'));
@@ -122,15 +129,19 @@ Copyright &copy; <?php echo date('Y'); ?>
 </div>
 </section>
 
-<?php
 
-echo '<div class="text-center bg-accent-secondary" style="padding:0px 50px 50px;color:gray;">';
-    echo '<div class="d-flex justify-content-center align-items-center">';
-        echo '<small class=""><a href="https://latinowebstudio.com/" target="_blank" rel="noopener noreferrer" title="Web Design, Development & SEO done by Latino Web Studio in Denver, CO" style="" class="">Web Design &amp; SEO in Denver, CO</a> done by Latino Web Studio.</small>';
-    echo '</div>';
-echo '</div>';
 
-?>
+<div class="text-center bg-accent-secondary" style="padding:0px 50px 50px;color:gray;">
+<div class="d-flex justify-content-center align-items-center">
+<small class="">
+    <a href="https://latinowebstudio.com/" target="_blank" rel="noopener noreferrer" title="Web Design, Development & SEO done by Latino Web Studio in Denver, CO" style="" class="">
+    <img src="https://resources.latinowebstudio.com/wp-content/uploads/Precise-Wolf-Digital-Logo-Left-Aligned-White.png" style="height:50px;width:auto;object-fit:contain;" alt="">
+</a>
+</small>
+</div>
+</div>
+
+
 <!-- The first Modal -->
 <div id="mobileMenu" class="modal-custom mobile-menu" style="opacity:0;pointer-events:none;">
 
@@ -163,7 +174,7 @@ wp_nav_menu(array(
 ?>
 <div class="text-white">
 <?php
-echo do_shortcode('[discovery_engineering_contact]');
+echo do_shortcode('[global_cta]');
 ?>
 </div>
 

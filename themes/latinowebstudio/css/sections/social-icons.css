@@ -1,4 +1,19 @@
-.si svg {
+.si .d-block svg {
+    width: auto;
+    height: 25px;
+}
+
+.si div {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 50%;
+}
+
+/* .si svg {
     height:15px;
     width: auto;
 }
@@ -21,4 +36,4 @@ a:hover .svg-icon {
 }
 a:hover .svg-icon path {
     fill: white;
-}
+} */

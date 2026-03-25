@@ -6,7 +6,7 @@
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-TKN7KVNZ');</script>
+})(window,document,'script','dataLayer','GTM-NF86X3JF');</script>
 <!-- End Google Tag Manager -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,8 +16,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   ?>
 </head>
 <body <?php body_class(); ?>>
-	<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TKN7KVNZ"
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NF86X3JF"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
   <?php echo codeBody(); ?>
@@ -31,7 +31,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
           <div class="col-lg-3 col-md-4 col-5 text-center" style="">
             <div class="bg-accent-secondary box-shadow" style="border-bottom-left-radius:25px;border-bottom-right-radius:25px;padding-top:15px;">
-            <a href="<?php echo home_url(); ?>/?nocache" title="<?php echo get_bloginfo( 'name' ) . ' - ' . get_bloginfo( 'description' ); ?>" class="">
+            <a href="<?php echo home_url(); ?>/" title="<?php echo get_bloginfo( 'name' ) . ' - ' . get_bloginfo( 'description' ); ?> - <?php echo globalPhone(); ?> - <?php echo companyLocation(); ?>" class="">
               <div id="logoMain" style="min-width:100px;width:75%;transition:all .25s ease-in-out;margin:auto;">
                 <div style="pointer-events:none;">
                   <?php echo logoSVG(); ?>

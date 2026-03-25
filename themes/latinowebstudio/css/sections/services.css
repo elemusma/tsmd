@@ -45,6 +45,24 @@ left:calc(5% - 4px);
     right: 20px;
 }
 
+
+.section-arrow-columns .content-container:before {
+  content:"";
+  background-image: url('/wp-content/uploads/Arrow-Icon.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  position:absolute;
+  width:15px;
+  height:15px;
+  object-fit:contain;
+  top:2px;
+  left:0px;
+}
+
+
+/* maybe not needed below */
+
 .services-col {
   position: relative;
   overflow: hidden;

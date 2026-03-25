@@ -97,11 +97,43 @@ CSF::createSection( $prefix, array(
 		'default' => 'John Doe'
 	  ),
 	  array(
+		'id'      => 'company-location',
+		'type'    => 'text',
+		'title'   => 'Location',
+		'default' => 'Denver, CO 80210'
+	  ),
+	  array(
 		'id'      => 'cv-download-link',
 		'type'    => 'text',
 		'title'   => 'CV Download Link',
 		'default' => '#'
 	  ),
+
+	   // repeater field
+        array(
+        'id'     => 'opt-repeater-1',
+        'type'   => 'repeater',
+        'title'  => 'Repeater',
+        'sanitize' => false,
+        'fields' => array(
+
+            array(
+            'id'    => 'opt-link-1',
+            'type'  => 'link',
+            'title' => 'Link',
+            ),
+            // Code Editor
+        array(
+            'id'    => 'svg-social-logos',
+            'type'  => 'code_editor',
+            'title' => 'SVG Social Logos',
+            'sanitize' => false,
+        ),
+            
+        
+        ),
+        ),
+        // end of repeater field
 	  
 	  
 
@@ -189,6 +221,11 @@ function expertName() {
     global_function(); // call the global function to set $options
     return $options['expert-name'];
 }
+function companyLocation() {
+    global $options;
+    global_function(); // call the global function to set $options
+    return $options['company-location'];
+}
 function cvDownloadLink() {
     global $options;
     global_function(); // call the global function to set $options
@@ -198,6 +235,12 @@ function expertWitness() {
     global $options;
     global_function(); // call the global function to set $options
     return $options['expert-witness-blurb'];
+}
+
+function socialIconsRepeater() {
+    global $options;
+    global_function(); // call the global function to set $options
+    return $options['opt-repeater-1'];
 }
 
 ?>

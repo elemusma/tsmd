@@ -41,7 +41,7 @@ wp_enqueue_style('blog', get_theme_file_uri('/css/sections/blog.css'));
 wp_enqueue_style('gutenberg-custom', get_theme_file_uri('/css/sections/gutenberg.css'));
 
 // wp_enqueue_style('sidebar', get_theme_file_uri('/css/sections/sidebar.css'));
-// wp_enqueue_style('social-icons', get_theme_file_uri('/css/sections/social-icons.css'));
+wp_enqueue_style('social-icons', get_theme_file_uri('/css/sections/social-icons.css'));
 
 }
 add_action('wp_enqueue_scripts', 'terrell_swanson_stylesheets');
@@ -251,38 +251,38 @@ add_shortcode( 'currentyear', 'current_year' );
 
 function social_media_icons( $atts, $content = null ) {
 
-$socialIcons = '';
+// $socialIcons = '';
 
-if(have_rows('social_icons','options')): 
-	$socialIcons .= '<div class="si d-flex flex-wrap justify-content-end">';
-	while(have_rows('social_icons','options')): the_row(); 
-$svgOrImg = get_sub_field('svg_or_image');
-$socialLink = get_sub_field('link');
-$svg = get_sub_field('svg');
-$image = get_sub_field('image');
+// if(have_rows('social_icons','options')): 
+// 	$socialIcons .= '<div class="si d-flex flex-wrap justify-content-end">';
+// 	while(have_rows('social_icons','options')): the_row(); 
+// $svgOrImg = get_sub_field('svg_or_image');
+// $socialLink = get_sub_field('link');
+// $svg = get_sub_field('svg');
+// $image = get_sub_field('image');
 
-$socialLink_url = $socialLink['url'];
-$socialLink_title = $socialLink['title'];
-$socialLink_target = $socialLink['target'] ? $socialLink['target'] : '_self';
+// $socialLink_url = $socialLink['url'];
+// $socialLink_title = $socialLink['title'];
+// $socialLink_target = $socialLink['target'] ? $socialLink['target'] : '_self';
 
-$socialIcons .= '<a href="' . $socialLink_url . '" target="' . $socialLink_target . '" style="text-decoration:none;" class="si-icon-link">';
+// $socialIcons .= '<a href="' . $socialLink_url . '" target="' . $socialLink_target . '" style="text-decoration:none;" class="si-icon-link">';
 
-if($svgOrImg == 'SVG') {
+// if($svgOrImg == 'SVG') {
 
-	$socialIcons .= '<div class="svg-icon">';
-	$socialIcons .= $svg;
-	$socialIcons .= '</div>';
-} elseif($svgOrImg == 'Image') {
+// 	$socialIcons .= '<div class="svg-icon">';
+// 	$socialIcons .= $svg;
+// 	$socialIcons .= '</div>';
+// } elseif($svgOrImg == 'Image') {
 
-	$socialIcons .= wp_get_attachment_image($image['id'],'full','',['class'=>'img-si']);
+// 	$socialIcons .= wp_get_attachment_image($image['id'],'full','',['class'=>'img-si']);
 
-}
-$socialIcons .= '</a>';
+// }
+// $socialIcons .= '</a>';
 
-endwhile; 
+// endwhile; 
 
-$socialIcons .= '</div>';
-endif; 
+// $socialIcons .= '</div>';
+// endif; 
 
 // return $socialIcons;
 
