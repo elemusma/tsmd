@@ -11,6 +11,11 @@
     justify-content: center;
     background: white;
     border-radius: 50%;
+    transition:all .25s ease-in-out;
+}
+
+.si a:hover div {
+    background: var(--accent-primary);
 }
 
 /* .si svg {
